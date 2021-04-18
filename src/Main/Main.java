@@ -11,7 +11,6 @@ public class Main {
 	static Scanner sc = new Scanner(System.in);
 	
 	public static void main(String[] args) throws InterruptedException {
-		cadastrarPessoa();
 		do{
 		System.out.println("APLICATIVO DE CONTROLE DE VACINAÇÃO");	
 		System.out.println("SELECIONA OPÇÃO:");
@@ -121,15 +120,7 @@ public class Main {
 		}
 		}
 	}	
-	
-	public static void cadastrarPessoa() {
-		pessoas.add(new Pessoa("Matheus", 12, "1", "casa", "123", "em@il", "123", "trab"));
-		pessoas.add(new Pessoa("Preto Veio", 62, "12", "casa", "123", "em@il", "123", "umbanda"));
-		pessoas.add(new Pessoa("Cigana", 53, "52", "casa", "123", "em@il", "123", "quiromante"));
-		pessoas.add(new Pessoa("Arrascaeta", 25, "123", "casa", "123", "em@il", "123", "açougueiro"));
-		pessoas.add(new Pessoa("Jakcsonildo", 12, "31", "casa", "123", "em@il", "123", "enfermeiro"));
-		pessoas.add(new Pessoa("Phillip", 99, "21", "palácio de buckingham", "123", "em@il", "123", "marido da rainha"));
-	}	
+		
 	
 	public static String consultarUsuario() {
 		System.out.println("Inserir CPF do usuário:");
