@@ -37,6 +37,7 @@ public class Pessoa {
 		this.telefone = telefone;
 		this.profissao = profissao;
 		this.status = new NaoHabilitado();
+		this.comorbidades = new ArrayList<String>();
 	}
 	
 	public Pessoa(String nome, String cpf, String endereco, String cartaoSUS, String email, String telefone,
@@ -50,6 +51,10 @@ public class Pessoa {
 		this.telefone = telefone;
 		this.profissao = profissao;
 		this.comorbidades = comorbidades;
+	}
+	
+	public void addComorbidade(String comorbidade) {
+		comorbidades.add(comorbidade);
 	}
 	
 	public void changeStatus() {

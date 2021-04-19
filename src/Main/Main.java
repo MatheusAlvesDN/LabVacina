@@ -76,7 +76,8 @@ public class Main {
 			System.out.println("5-ALTERAR CARTÃO DO SUS");
 			System.out.println("6-ALTERAR EMAIL");
 			System.out.println("7-ALTERAR TELEFONE");
-			System.out.println("8-ALTERAR PROFISSÃO");
+			System.out.println("8-ALTERAR PROFISSÃO");			
+			System.out.println("9-ADICIONAR COMORBIDADE");
 			System.out.println("INSIRA QUALQUER OUTRO NUMERO PARA RETORNAR A PAGINA INICIAL");
 			int op = sc.nextInt();
 			switch(op) {
@@ -111,6 +112,10 @@ public class Main {
 				case 8:
 					System.out.println("Profissão:");
 					p.setProfissao(sc.next());
+					break;
+				case 9:
+					System.out.println("Comorbidade:");
+					p.addComorbidade(sc.next());
 					break;
 			}
 			clearScreen();
@@ -158,18 +163,23 @@ public class Main {
 		if(bol) {
 			System.out.println("Usuário com o CPF " + cpf + " não encontrado");
 		}
-		System.out.println("Pressione enter para continuar.");
+		System.out.println("Insira qualquer para continuar.");
 		sc.next();
 	}
 
 	public static void habilitarVacinacao() {
 		System.out.println("1-Habilitar idade para primeira dose");
 		System.out.println("2-Habilitar profissão para a primeira dose");
+		System.out.println("3-Habilitar comorbidade para a primeira dose");
+		System.out.println("INSIRA QUALQUER OUTRO NUMERO PARA RETORNAR A PAGINA INICIAL");
+
 		int op = sc.nextInt();
 		if(op == 1)
 			habilitarIdade();
 		if(op == 2)
 			habilitarProfissao();
+		if(op == 3)
+			habilitarComorbidade();
 	}
 	
 	private static void habilitarIdade() {
@@ -196,7 +206,18 @@ public class Main {
 		System.out.println("Pessoas com a profissão " + trab + " agora estão aptos a receber a vacina!");
 	}
 	
-	
+	public static void habilitarComorbidade() {
+		System.out.println("INSERIR NOVA COMORBIDADE PARA A PRIMEIRA DOSE");
+		String doenca = sc.next();
+		for (Pessoa p: pessoas) {
+			if(p.getComorbidades().contains(doenca) && p.getStatus().getStatus().equals("NÃO HABILITADO PARA RECEBER A VACINA")) {
+				p.changeStatus();
+			}
+		}
+		
+		System.out.println("Pessoas com a comorbidade " + doenca + " agora estão aptos a receber a vacina!");
+	}
+
 	public static void clearScreen() {
 		for(int i = 0; i <= 20; i++)
 			System.out.println();
